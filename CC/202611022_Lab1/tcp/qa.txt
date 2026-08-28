@@ -1,0 +1,5 @@
+What is TCP?|TCP is a connection-oriented and reliable transport layer protocol.
+What is UDP?|UDP is a connectionless and unreliable transport layer protocol.
+What is a socket?|A socket is an endpoint used for communication between two processes.
+What is IP?|IP stands for Internet Protocol and is used for addressing and routing packets.
+What is HTTP?|HTTP stands for HyperText Transfer Protocol and is used for communication on the web.
