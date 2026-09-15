@@ -1,4 +1,4 @@
-﻿# 🎓 M.Tech Lab Assignments — Neel Prajapati (202611022)
+# 🎓 M.Tech Lab Assignments — Neel Prajapati (202611022)
 
 This repository contains all my **M.Tech** lab assignments, practical implementations, and coursework across multiple subjects.
 
@@ -6,29 +6,33 @@ This repository contains all my **M.Tech** lab assignments, practical implementa
 
 ## 📁 File Structure
 
-```
+```text
 lab Assignments/
 │
 ├── CC/                                  # Computer Communications / Networking
+│   ├── 202611022/                       # Lab 2 — Multi-Client Server
+│   │   ├── multi_client.py              # Multi-client implementation
+│   │   ├── multi_server.py              # Multi-threaded server
+│   │   └── Screen Recording 2026-08-21 134009.mp4 # Demo recording
+│   ├── 202611022.zip                    # Zipped Lab 2 files
 │   ├── 202611022_Lab1/                  # Lab 1 — TCP & UDP Socket Programming
 │   │   ├── tcp/
+│   │   │   ├── qa.txt                   # Q&A notes
 │   │   │   ├── tcp_client.py            # TCP client implementation
-│   │   │   ├── tcp_server.py            # TCP server implementation
-│   │   │   └── qa.txt                   # Q&A notes
+│   │   │   └── tcp_server.py            # TCP server implementation
 │   │   ├── udp/
 │   │   │   ├── udp_client.py            # UDP client implementation
 │   │   │   └── udp_server.py            # UDP server implementation
 │   │   └── 202611022_report.pdf         # Lab 1 report
-│   └── 202611022/                       # Lab 2 — Multi-Client Server
-│       ├── multi_client.py              # Multi-client implementation
-│       ├── multi_server.py              # Multi-threaded server
-│       └── Screen Recording *.mp4       # Demo recording
+│   └── 202611022_Lab1.zip               # Zipped Lab 1 files
 │
 ├── EDA/                                 # Exploratory Data Analysis
 │   ├── 202611022_lab1.ipynb             # EDA Lab 1
 │   ├── 202611022_lab2.ipynb             # EDA Lab 2
-│   ├── 202611022_EDA_LAB3.ipynb         # EDA Lab 3
-│   └── DOC-20260816-WA0003.pdf          # Reference document
+│   ├── 202611022_lab3.ipynb             # EDA Lab 3
+│   ├── 202611022_lab4.ipynb             # EDA Lab 4
+│   ├── DOC-20260816-WA0003.pdf          # Reference document
+│   └── pdf_text.txt                     # Text extracted from PDF
 │
 ├── ML/                                  # Machine Learning (FoML)
 │   ├── 202611022_lab1.ipynb             # ML Lab 1
@@ -76,14 +80,15 @@ lab Assignments/
 
 ## 🛠️ Technologies Used
 
-| Category        | Tools / Libraries                         |
-|-----------------|-------------------------------------------|
-| Language        | Python 3.x                                |
-| Notebooks       | Jupyter Notebook / Google Colab           |
-| Data Science    | NumPy, Pandas, Matplotlib, Seaborn        |
-| ML              | Scikit-learn                              |
-| Networking      | Python `socket`, `threading` modules      |
-| Version Control | Git & GitHub                              |
+| Category          | Tools / Libraries                                 |
+|-------------------|---------------------------------------------------|
+| Language          | Python 3.x                                        |
+| Notebooks         | Jupyter Notebook / Google Colab                   |
+| Data Science      | NumPy, Pandas, Matplotlib, Seaborn                |
+| ML                | Scikit-learn                                      |
+| Networking        | Python `socket`, `threading` modules              |
+| Data Handling     | File I/O, PDF Text Extraction                     |
+| Version Control   | Git & GitHub                                      |
 
 ---
 
