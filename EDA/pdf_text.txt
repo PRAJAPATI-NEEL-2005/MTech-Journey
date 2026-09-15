@@ -1,0 +1,312 @@
+=== PAGE 1 ===
+Assignment 4: Data Visualization for EDA -- Page 1
+Assignment 4
+Data Visualization for EDA
+
+
+=== PAGE 2 ===
+Assignment 4: Data Visualization for EDA -- Page 2
+Q1. Matplotlib -- Line Plots, Scatter Plots & Bar Charts
+Practice foundational plotting functions in Matplotlib for trend analysis and comparisons.
+import matplotlib.pyplot as plt
+import numpy as np
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+sales = [120, 150, 170, 160, 200, 220]
+profit = [20, 30, 35, 25, 45, 50]
+x = np.array([10, 20, 30, 40, 50, 60, 70, 80])
+y = np.array([15, 25, 35, 45, 40, 60, 55, 70])
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [23, 45, 56, 78, 32]
+Perform the following tasks:
+• Create a line chart showing monthly sales. Add an appropriate title, x-axis label, and y-axis label.
+• On the same chart, add a second line showing monthly profit using a different color and line style.
+Include a legend to distinguish the two lines.
+• Create a scatter plot of x versus y. Use red circular markers with black edges and add a grid to the
+plot.
+• Create a vertical bar chart showing values for each category. Use a different color for each bar.
+• Create a horizontal bar chart for the same category data.
+• Save the horizontal bar chart as an image file named "bar_chart.png" with a resolution of 150 DPI.
+Explain in 2-3 sentences: When should you use a line plot versus a scatter plot during EDA?
+
+
+=== PAGE 3 ===
+Assignment 4: Data Visualization for EDA -- Page 3
+Q2. Matplotlib -- Histograms, Box Plots & Pie Charts
+Visualize data distributions, outliers, and proportions using Matplotlib.
+import matplotlib.pyplot as plt
+import numpy as np
+np.random.seed(42)
+data = np.random.normal(loc=50, scale=10, size=1000)
+box_data = [np.random.normal(50, 10, 100),
+            np.random.normal(60, 15, 100),
+            np.random.normal(45, 8, 100)]
+labels = ['Group A', 'Group B', 'Group C']
+sizes = [30, 25, 20, 15, 10]
+explode = (0.1, 0, 0, 0, 0)
+Perform the following tasks:
+• Create a histogram of the data with 30 bins. Use skyblue color with black edges. Add a title
+"Distribution of Scores".
+• Add vertical lines on the histogram to mark the mean and median values in different colors. Include
+a legend identifying each line.
+• Create a box plot comparing the three groups in box_data. Label each group appropriately and
+display outliers as red diamond markers.
+• Create a pie chart showing the proportions in sizes. Label each slice A through E, explode the first
+slice outward, and display percentage values on each slice.
+• Create a stacked bar chart with two data series: [20, 35, 30, 35, 27] and [25, 32, 34, 20, 25]. Use
+appropriate colors and add a legend.
+Explain in 2-3 sentences: What does a box plot reveal that a histogram cannot, and vice versa?
+
+
+=== PAGE 4 ===
+Assignment 4: Data Visualization for EDA -- Page 4
+Q3. Matplotlib -- Subplots, Annotations & Customization
+Master advanced Matplotlib features for creating publication-ready multi-panel visualizations.
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+y3 = np.tan(x)
+y3 = np.clip(y3, -10, 10)
+time = np.arange(0, 10, 0.1)
+temp = 25 + 10 * np.sin(time) + np.random.normal(0, 2, len(time))
+Perform the following tasks:
+• Create a figure with three subplots arranged vertically (3 rows, 1 column) with a shared x-axis. Set
+the figure size to 8 inches by 10 inches.
+• In the first subplot, plot the sine curve with a blue dashed line. Add an annotation with an arrow
+pointing to the peak value, labeling it "Peak".
+• In the second subplot, plot the cosine curve with a green dotted line. Set the y-axis limits from -1.5
+to 1.5.
+• In the third subplot, plot the tangent curve with an orange solid line. Add a dashed grid with 70%
+opacity.
+• Apply tight layout to prevent overlapping elements. Add a main title "Trigonometric Functions" at
+the top of the figure.
+• Create a dual-axis plot showing temperature over time. Plot Celsius values on the left y-axis and
+Fahrenheit values on the right y-axis. Label both axes clearly.
+Explain in 2-3 sentences: Why are subplots important when comparing multiple variables in EDA?
+When would you use a secondary y-axis?
+
+
+=== PAGE 5 ===
+Assignment 4: Data Visualization for EDA -- Page 5
+Q4. Seaborn -- Distribution Plots (Univariate Analysis)
+Use Seaborn to analyze the distribution of single variables -- the first step in any EDA.
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+np.random.seed(42)
+df = pd.DataFrame({
+    'Age': np.random.randint(18, 60, 200),
+    'Salary': np.random.normal(50000, 15000, 200),
+    'Score': np.random.beta(2, 5, 200) * 100,
+    'Department': np.random.choice(['IT', 'HR', 'Sales', 'Finance'], 200)
+})
+Perform the following tasks:
+• Set the Seaborn visual style to whitegrid and the color palette to muted.
+• Create a histogram of the Age column with 20 bins, overlaid with a KDE curve. Use steelblue
+color.
+• Create a KDE plot for the Salary column. Fill the area under the curve with 50% transparency.
+• Create a box plot for the Score column. Add a title and ensure all labels are readable.
+• Create a violin plot for the Salary column. Display the inner quartile lines inside the violin shape.
+• Create an ECDF plot for the Age column. Add a second ECDF line for the Salary column on the
+same plot (normalize Salary to 0-100 range first, or create separate subplots).
+Explain in 2-3 sentences: When would you prefer a violin plot over a box plot for EDA? What unique
+insight does an ECDF plot provide?
+
+
+=== PAGE 6 ===
+Assignment 4: Data Visualization for EDA -- Page 6
+Q5. Seaborn -- Categorical Plots
+Analyze relationships between categorical and numerical variables -- essential for understanding group
+differences.
+import seaborn as sns
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+df = pd.DataFrame({
+    'Department': np.random.choice(['IT', 'HR', 'Sales', 'Finance'], 150),
+    'Gender': np.random.choice(['Male', 'Female'], 150),
+    'Salary': np.random.normal(55000, 12000, 150),
+    'Experience': np.random.randint(1, 15, 150)
+})
+Perform the following tasks:
+• Create a count plot showing the number of employees in each Department. Use a custom color
+palette of your choice.
+• Create a bar plot showing the average Salary for each Department. Display standard deviation as
+error bars. Use Gender as a hue to show male and female bars side by side.
+• Create a strip plot of Salary by Department with jitter enabled and 60% point opacity. Overlay it on
+top of a box plot for the same data.
+• Create a swarm plot of Salary by Department using the Set2 color palette.
+• Create a box plot of Salary by Department, grouped by Gender. Use a pastel color palette.
+• Create a violin plot of Experience by Department, split by Gender. Display the median as a white
+dot inside each half.
+Explain in 2-3 sentences: What is the difference between a strip plot and a swarm plot? When should
+you use each during EDA?
+
+
+=== PAGE 7 ===
+Assignment 4: Data Visualization for EDA -- Page 7
+Q6. Seaborn -- Relationship & Regression Plots (Bivariate)
+Explore relationships between two continuous variables to find correlations and trends.
+import seaborn as sns
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+df = pd.DataFrame({
+    'Study_Hours': np.random.uniform(1, 10, 100),
+    'Marks': np.random.uniform(40, 100, 100),
+    'Attendance': np.random.uniform(60, 100, 100),
+    'Subject': np.random.choice(['Math', 'Science', 'English'], 100)
+})
+df['Marks'] = df['Study_Hours'] * 5 + df['Attendance'] * 0.3 + np.random.normal(0, 5, 100)
+Perform the following tasks:
+• Create a scatter plot of Study_Hours versus Marks. Color the points by Subject and vary the point
+size by Attendance.
+• Create a line plot showing the relationship between Attendance and Marks. Sort the data by
+Attendance before plotting and include error shading.
+• Create a regression plot of Study_Hours versus Marks with a 95% confidence interval band.
+Reduce the opacity of the scatter points.
+• Create a residual plot for the Study_Hours versus Marks relationship. Add a horizontal reference
+line at zero in red.
+• Create a joint plot of Study_Hours versus Marks with a regression line. Set the plot size to 8
+inches.
+• Create a pair plot of all numeric columns, colored by Subject. Use KDE plots on the diagonal.
+Explain in 2-3 sentences: How does a pair plot help in the initial stages of EDA? What would you look
+for in the diagonal versus off-diagonal plots?
+
+
+=== PAGE 8 ===
+Assignment 4: Data Visualization for EDA -- Page 8
+Q7. Seaborn -- Heatmaps, Clustermaps & Correlation
+Visualize correlations and complex matrices to understand multivariate relationships.
+import seaborn as sns
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+df = pd.DataFrame({
+    'A': np.random.normal(50, 10, 100),
+    'B': np.random.normal(60, 15, 100),
+    'C': np.random.normal(40, 8, 100),
+    'D': np.random.normal(70, 12, 100),
+    'E': np.random.normal(55, 20, 100)
+})
+df['B'] = df['A'] * 0.8 + np.random.normal(0, 5, 100)
+df['C'] = df['A'] * (-0.6) + np.random.normal(0, 5, 100)
+df['D'] = df['B'] * 0.5 + np.random.normal(0, 5, 100)
+Perform the following tasks:
+• Compute and print the correlation matrix of all numeric columns in the dataframe.
+• Create a heatmap of the correlation matrix. Display the correlation values inside each cell
+formatted to 2 decimal places. Add grid lines between cells.
+• Use a diverging colormap centered at zero with values ranging from -1 to 1.
+• Create a clustermap of the correlation matrix. Set the figure size to 8 by 8 inches and use an
+appropriate diverging colormap.
+• Create a heatmap showing only the lower triangle of the correlation matrix. Mask the upper triangle
+so it appears blank.
+• Create a FacetGrid showing the distribution of column A, split into separate subplots based on
+quartile ranges of column D.
+Explain in 2-3 sentences: Why is visualizing correlations via a heatmap more effective than reading a
+raw correlation matrix? When would you use a clustermap instead?
+
+
+=== PAGE 9 ===
+Assignment 4: Data Visualization for EDA -- Page 9
+Q8. Plotly -- Interactive Basic Charts
+Build interactive visualizations using Plotly Express for dynamic data exploration.
+import plotly.express as px
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+df = pd.DataFrame({
+    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'] * 3,
+    'Sales': np.random.randint(100, 300, 18),
+    'Profit': np.random.randint(20, 80, 18),
+    'Region': ['North', 'South', 'East'] * 6,
+    'Customers': np.random.randint(50, 200, 18)
+})
+Perform the following tasks:
+• Create an interactive line chart showing Sales over Month, with a separate line for each Region.
+Include markers at each data point.
+• Create an interactive bar chart showing total Sales by Region. Display the exact sales value on top
+of each bar.
+• Create an interactive scatter plot of Sales versus Profit. Color points by Region, set bubble size by
+Customers, and show Month information when hovering over points.
+• Create an interactive donut chart showing the proportion of total Sales by Region. Set the hole size
+to 40% of the radius.
+• Create an animated scatter plot of Sales versus Profit that transitions through each Month. Fix the
+x-axis range from 0 to 350 and y-axis range from 0 to 100 for smooth animation.
+• Create an interactive area chart showing cumulative Sales by Month for each Region.
+Explain in 2-3 sentences: What advantage does Plotly offer over static Matplotlib/Seaborn plots
+during EDA? Give a specific example.
+
+
+=== PAGE 10 ===
+Assignment 4: Data Visualization for EDA -- Page 10
+Q9. Plotly -- Graph Objects, 3D Plots & Controls
+Use Plotly Graph Objects for custom interactive visualizations with full control over layout and behavior.
+import plotly.graph_objects as go
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+df = pd.DataFrame({
+    'Product': ['A', 'B', 'C', 'D', 'E'] * 4,
+    'Quarter': ['Q1', 'Q2', 'Q3', 'Q4'] * 5,
+    'Revenue': np.random.randint(50, 200, 20),
+    'Cost': np.random.randint(30, 150, 20)
+})
+df['Profit'] = df['Revenue'] - df['Cost']
+Perform the following tasks:
+• Create a grouped bar chart showing Revenue and Cost side by side for each Product. Use
+appropriate colors and add a title.
+• Create a stacked bar chart of the same Revenue and Cost data. Ensure the total height of each
+bar represents the sum.
+• Create a bubble chart where the x-axis shows Revenue, the y-axis shows Profit, bubble size
+represents Cost, and bubble color represents Product.
+• Add interactive dropdown buttons that allow the user to toggle the bar chart between showing
+Revenue, Cost, or Profit values.
+• Create a 3D scatter plot with Revenue on the x-axis, Cost on the y-axis, and Profit on the z-axis.
+Color points by Product and label all three axes.
+• Create an interactive table displaying the first 10 rows of the dataframe with formatted column
+headers.
+Explain in 2-3 sentences: When would you choose Plotly Graph Objects over Plotly Express? What is
+the trade-off?
+
+
+=== PAGE 11 ===
+Assignment 4: Data Visualization for EDA -- Page 11
+Q10. Plotly -- Interactive EDA Dashboards & Advanced Charts
+Build advanced interactive visualizations specifically designed for EDA -- hierarchical charts, faceted
+views, and multi-plot dashboards.
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import pandas as pd
+import numpy as np
+np.random.seed(42)
+n = 300
+df = pd.DataFrame({
+    'City': np.random.choice(['New York', 'LA', 'Chicago', 'Houston', 'Phoenix'], n),
+    'Category': np.random.choice(['Electronics', 'Clothing', 'Food', 'Home'], n),
+    'Sales': np.random.lognormal(4, 0.5, n),
+    'Profit': np.random.lognormal(3, 0.4, n),
+    'Rating': np.random.choice([1,2,3,4,5], n, p=[0.05,0.1,0.2,0.35,0.3]),
+    'Quarter': np.random.choice(['Q1','Q2','Q3','Q4'], n)
+})
+Perform the following tasks:
+• Create an interactive sunburst chart showing the hierarchy from City to Category, with Sales as the
+value. Color the segments by Profit using a color scale.
+• Create an interactive treemap with the same City-to-Category hierarchy. Display the average
+Rating when hovering over each segment.
+• Create a faceted scatter plot of Sales versus Profit with a separate subplot for each Quarter. Color
+points by Category.
+• Create a 2x2 multi-plot dashboard containing: (1) a histogram of Sales, (2) a box plot of Profit by
+Category, (3) a scatter plot of Sales versus Profit, and (4) a bar chart of average Sales by City. Add
+subplot titles.
+• Create an animated bar chart showing Sales by Category that transitions through each Quarter.
+Fix the y-axis range to accommodate the maximum value across all quarters.
+• Create an interactive violin plot of Sales by Category, grouped by City. Display a box plot inside
+each violin and show all individual data points.
+Explain in 2-3 sentences: How do interactive dashboards (multi-plot layouts) improve EDA compared
+to viewing one chart at a time? When is a sunburst or treemap more useful than a bar chart?
+
+
