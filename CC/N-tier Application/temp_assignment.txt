@@ -1,0 +1,88 @@
+Assignment: Building a Simple N-Tier Application
+Overview
+You will design and implement a 3-tier "Library Management"
+ application that lets a user manage a small collection of books (add, view, update, delete, search). The purpose of this assignment is to demonstrate a clear separation of concerns across architectural layers — not to build something feature-rich.
+You may
+ use any language/stack you're comfortable with (suggested: Python + Flask/
+FastAPI
+ + SQLite, Node.js + Express + SQLite/Postgres, or Java + Spring Boot). The architecture matters more than the technology.
+Learning Objectives
+By completing this assignment, 
+you should be able to:
+Separate an application into Presentation, Business Logic, and Data Access tiers.
+Explain why each tier should only communicate with its adjacent tier.
+Implement input validation and business rules independent of both the UI and the 
+database.
+Swap out a data source without modifying business logic (prove loose coupling).
+Handle and propagate errors cleanly across tiers.
+Application Requirements
+Build a Book Manager with the following functionality:
+Feature
+Description
+Add a book
+Title, Author, ISBN, Publication Year, Quantity
+View all books
+List all books in the collection
+Search books
+By title or author (partial match)
+Update a book
+Edit any field of an existing book
+Delete a book
+Remove a book by ID
+Check out a book
+Decrease quantity by 1 (must not go below 0)
+Business Rules
+These must live in the Business Logic tier, not the UI or DB layer:
+Title and Author cannot be empty.
+Publication Year must be a valid year (not in the future).
+ISBN must be exactly 10 or 13 dig
+its.
+Quantity cannot be negative.
+A book cannot be checked out if quantity is already 0 (return a meaningful error, not a crash).
+Required Architecture
+Your project must be organized into three distinct layers, each in its own folder/module/package:
+/presentation   → CLI, REST API endpoints, or simple web UI
+/business       → validation, business rules, orchestration
+/data           → repository/DAO classes, database access only
+Layer Rules
+Presentation tier: Handles input/output only. No business rul
+es. No direct database calls.
+Business tier: Contains all validation and business rules. Never imports or calls database libraries directly — it should depend on an interface/abstraction, not a concrete data implementation.
+Data tier: Handles only reading/writing data. No validation logic. No knowledge of how data will be displayed.
+Rule of thumb: if you can't tell which tier a piece of code belongs to, that's a signal it's in the wrong place.
+Deliverables
+Source code organiz
+ed into the three folders/layers described above.
+A short architecture diagram
+ showing the three tiers and how data flows between them.
+A README.md that includes: how to run the application, a description of what each tier d
+oes, and one paragraph explaining a design decision you made and why (e.g., "I used a repository interface so I could swap SQLite for an in-memory store during testing").
+At least 5 unit tests for the Business Logic tier that use a fake/mock data source (i
+.e., do not hit a real database).
+A "swap test": implement two versions of your data layer (e.g., SQLite and an in-memory list) and demonstrate — in your README or a short script — that the business logic works identically against both without any code cha
+nges to the business tier.
+Grading Rubric (100 points)
+Criteria
+Points
+Correct 3-tier separation (no layer violations)
+30
+All required features implemented and working
+25
+Business rules correctly enforced in the business tier
+15
+Unit tests for business logic (mocked data layer)
+15
+Swap test demonstrating data-layer independence
+10
+README clarity and architecture diagram
+5
+Common Point Deductions
+UI code calling the database directly (–10)
+Business rules implemented in the UI or DB layer instead of business tier (–10)
+Tests that hit a real database instead of a mock/fake (–5)
+Submission
+Submit a link to your source code repository (or a zipped folder) containing:
+/presentation, /business, /data folders
+README.md
+/tests folder
+Architecture diagram (image or markdown/ASCII file)
